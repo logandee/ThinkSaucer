@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model VMW
+<h3>Hi @Model.user.Alias, What is your BrightIdea?</h3>
+<div>
+    <form asp-action="NewPost" asp-controller="Home" method="post">
+        <span asp-validation-for="newPost.Content"></span>
+        <div class="form-group">
+        <textarea asp-for="newPost.Content" placeholder="post something..." cols="50"></textarea>
+        <input value="Add Idea" type="submit">    
+        </div>
+    </form>
+</div>
+@{
+    foreach(Post post in Model.posts)
+    {
+            <div class="p-2 bd-highlight post-area">
+                <h5><a href="/bright_idea/user/@post.UserId">@post.Creator.Alias</a> says:</h5>
+                <p>@post.Content</p>
+                @{
+                    if(!post.Likes.Exists(l => l.Liker == Model.user))
+                    {
+
+                    <a href="/bright_idea/new_like/@post.PostId/@Model.user.UserId">Like</a>
+                    }
+                }
+                <span><a href="/bright_idea/@post.PostId">@post.Likes.Count People</a> like this.</span>
+                @{
+                    if(post.Creator == Model.user)
+                    {
+                <a class="btn btn-warning btn-sm" href="/bright_idea/delete/@post.PostId">Remove</a>
+
+                    }
+                }
+            </div>
+    }
+}

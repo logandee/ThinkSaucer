@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+@model VMW
+<div class="text-center">
+    <h1 class="display-4">Share your BrightIdea!</h1>
+    <div class="col-5 d-inline-block text-left">
+            <h3>Registration</h3>
+
+    <form asp-action="Create" asp-controller="Home" method="post">
+
+        <span asp-validation-for="user.Name"></span>
+        <div class="form-group d-flex justify-content-between">
+        <label asp-for="user.Name"></label>
+        <input asp-for="user.Name">
+        </div>
+        <span asp-validation-for="user.Alias"></span>
+        <div class="form-group d-flex justify-content-between">
+        <label asp-for="user.Alias"></label>
+        <input asp-for="user.Alias">
+        </div>
+
+        <span asp-validation-for="user.Email"></span>
+        <div class="form-group d-flex justify-content-between">    
+        <label asp-for="user.Email"></label>
+        <input asp-for="user.Email">
+        </div>
+
+        <span asp-validation-for="user.Password"></span>
+        <div class="form-group d-flex justify-content-between">
+        <label asp-for="user.Password"></label>
+        <input asp-for="user.Password">
+        </div>
+        <span asp-validation-for="user.Confirm"></span>
+        <div class="form-group d-flex justify-content-between">
+        <label asp-for="user.Confirm"></label>
+        <input asp-for="user.Confirm">
+        </div>
+
+        <input value="Register" type="submit">    
+    </form>
+    </div>
+        <div class="col-5 d-inline-block align-top text-left">
+            <h3>Login</h3>
+
+    <form asp-action="Login" asp-controller="Home" method="post">
+
+        <span asp-validation-for="loginUser.Email"></span>
+        <div class="form-group d-flex justify-content-between">
+        <label asp-for="loginUser.Email"></label>
+        <input asp-for="loginUser.Email">
+        </div>
+
+        <span asp-validation-for="loginUser.Password"></span>
+        <div class="form-group d-flex justify-content-between">
+        <label asp-for="loginUser.Password"></label>
+        <input asp-for="loginUser.Password">
+        </div>
+
+        <input value="Login" type="submit">
+    </form>
+    </div>
+</div>

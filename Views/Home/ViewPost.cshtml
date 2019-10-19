@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model VMW
+
+<div class="p-2 bd-highlight post-area">
+    <h5>@Model.user.Alias says:</h5>
+    <p>@Model.newPost.Content</p>
+
+<hr>
+<p>People who liked this post:</p>
+<table>
+    <tr>
+        <th>Alias</th>
+        <th>Name</th>
+    </tr>
+    @{
+        foreach(Like like in @Model.likes)
+        {
+    <tr>
+        <td><a href="/bright_idea/user/@like.Liker.UserId">@like.Liker.Alias</a></td>
+        <td>@like.Liker.Name</td>
+    </tr> 
+        }
+    }
+
+</table>

@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model VMW
+
+<div class="p-2 bd-highlight post-area">
+<p>Name: @Model.user.Name</p>
+<p>Alias: @Model.user.Alias</p>
+<p>Email: @Model.user.Email</p>
+<hr>
+<p>Number of Posts: @Model.user.CreatedPosts.Count</p>
+<p>Number of Likes: @Model.user.Likes.Count</p>
