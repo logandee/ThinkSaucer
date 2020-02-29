@@ -2,13 +2,25 @@
     ViewData["Title"] = "Home Page";
 }
 @model VMW
+    
+<style>
+.main-post{
+    resize: none;
+    border-radius: 5px;
+    min-height: 70px;
+}
+.add-idea{
+    vertical-align: bottom;
+}
+
+</style>
 <h3>Hi @Model.user.Alias, What is your BrightIdea?</h3>
 <div>
     <form asp-action="NewPost" asp-controller="Home" method="post">
         <span asp-validation-for="newPost.Content"></span>
         <div class="form-group">
-        <textarea asp-for="newPost.Content" placeholder="post something..." cols="50"></textarea>
-        <input value="Add Idea" type="submit">    
+        <textarea asp-for="newPost.Content" placeholder="post something..." class="add-idea main-post col-4"></textarea>
+        <input value="Add Idea" type="submit" class="btn btn-secondary">    
         </div>
     </form>
 </div>

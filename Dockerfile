@@ -6,7 +6,7 @@ COPY BrightIdea.csproj .
 RUN dotnet restore
 
 COPY . .
-RUN dotnet ef migrations add FirstMigration
+#RUN dotnet ef migrations add FirstMigration
 RUN dotnet ef database update
 
 RUN dotnet publish -c Relase -o out
